@@ -1,0 +1,3 @@
+[submodule "MultiplatformSandbox_kmm"]
+	path = MultiplatformSandbox_kmm
+	url = https://github.com/maltsev-gorskij/MultiplatformSandbox_kmm.git

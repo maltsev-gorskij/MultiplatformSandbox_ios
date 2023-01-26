@@ -26,4 +26,5 @@ final class DIManager {
   }
 
   let launcesInteractor = LaunchesInteractor()
+  let profileInteractor = ProfileInteractor()
 }

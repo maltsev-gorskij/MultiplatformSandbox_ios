@@ -12,6 +12,8 @@
 		1A0A3B7E297025F00051AE97 /* RocketLaunchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0A3B7D297025F00051AE97 /* RocketLaunchRow.swift */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		E3204A372983FF9500C390F3 /* DIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3204A362983FF9500C390F3 /* DIService.swift */; };
+		E3204A3B2983FFF300C390F3 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3204A3A2983FFF300C390F3 /* ProfileViewModel.swift */; };
 		E34E22FE2981BC1C004AF2BB /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E34E22FD2981BC1C004AF2BB /* Pods_iosApp.framework */; };
 		E34E22FF2981BC1C004AF2BB /* Pods_iosApp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E34E22FD2981BC1C004AF2BB /* Pods_iosApp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E3BC9B62297ABE470055D24D /* LaunchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BC9B61297ABE470055D24D /* LaunchesView.swift */; };
@@ -46,6 +48,8 @@
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3204A362983FF9500C390F3 /* DIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIService.swift; sourceTree = "<group>"; };
+		E3204A3A2983FFF300C390F3 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		E34E22FD2981BC1C004AF2BB /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3BC9B61297ABE470055D24D /* LaunchesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesView.swift; sourceTree = "<group>"; };
 		E3BC9B63297ABE500055D24D /* LaunchesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesViewModel.swift; sourceTree = "<group>"; };
@@ -98,6 +102,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				E3204A352983FF8C00C390F3 /* Services */,
 				E3BC9B6D297AC6660055D24D /* Models */,
 				E3BC9B69297AC6210055D24D /* Presentation */,
 				E3BC9B65297ABE5E0055D24D /* Helpers */,
@@ -125,6 +130,29 @@
 				E34E22FD2981BC1C004AF2BB /* Pods_iosApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E3204A352983FF8C00C390F3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E3204A362983FF9500C390F3 /* DIService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E3204A382983FFDF00C390F3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E3204A392983FFE300C390F3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E3204A3A2983FFF300C390F3 /* ProfileViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		E3BC9B5E297ABE2C0055D24D /* Launches */ = {
@@ -215,6 +243,8 @@
 		E3D7456E297AD27A00BDC242 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				E3204A392983FFE300C390F3 /* ViewModel */,
+				E3204A382983FFDF00C390F3 /* View */,
 				E3D7456F297AD28B00BDC242 /* ProfileView.swift */,
 			);
 			path = Profile;
@@ -339,7 +369,9 @@
 				1A0A3B7E297025F00051AE97 /* RocketLaunchRow.swift in Sources */,
 				E3D74570297AD28B00BDC242 /* ProfileView.swift in Sources */,
 				E3BC9B6F297AC6700055D24D /* Toast.swift in Sources */,
+				E3204A372983FF9500C390F3 /* DIService.swift in Sources */,
 				E3BC9B6C297AC6330055D24D /* ToastView.swift in Sources */,
+				E3204A3B2983FFF300C390F3 /* ProfileViewModel.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				E3BC9B64297ABE500055D24D /* LaunchesViewModel.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,

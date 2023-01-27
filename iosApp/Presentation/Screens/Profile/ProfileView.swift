@@ -9,13 +9,24 @@
 import SwiftUI
 
 struct ProfileView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+  @StateObject private var viewModel = ProfileViewModel(interactor: DIManager.shared.profileInteractor)
+
+  var body: some View {
+    VStack(spacing: 60) {
+      VStack(spacing: 20) {
+        TextField("User name...", text: $viewModel.userName)
+        TextField("Encrypted text...", text: $viewModel.encryptedText)
+      }
+      Button("save") {
+        viewModel.save()
+      }
     }
+    .padding(.horizontal, 40)
+  }
 }
 
 struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
-    }
+  static var previews: some View {
+    ProfileView()
+  }
 }

@@ -14,16 +14,3 @@ struct iOSApp: App {
   }
 }
 
-final class DIManager {
-
-  static func configure() {
-    KoinInitializerKt.initializeKoin()
-  }
-
-  static let shared = DIManager()
-
-  init() {
-  }
-
-  let launcesInteractor = LaunchesInteractor()
-}

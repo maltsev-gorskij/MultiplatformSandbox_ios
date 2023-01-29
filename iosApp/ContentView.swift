@@ -18,13 +18,14 @@ struct ContentView: View {
         }
     }.onAppear {
       do {
-//        let profile = try DIManager.shared.profileInteractor.getProfile()
-//        let pro
-//        print("DEBUG: \(profile)")
-        let string = try PrefsProvider().provideString()
-        print("DEBUG: \(string)")
-        let stringEncrypted = try PrefsProvider().provideEncryptedString()
-        print("DEBUG: \(stringEncrypted)")
+        let newProfile = Profile(userName: "vasya", encrypted: "petya")
+        try DIManager.shared.profileInteractor.saveProfile(profile: newProfile)
+        let profile = try DIManager.shared.profileInteractor.getProfile()
+        print("DEBUG: \(profile)")
+//        let string = try PrefsProvider().provideString()
+//        print("DEBUG: \(string)")
+//        let stringEncrypted = try PrefsProvider().provideEncryptedString()
+//        print("DEBUG: \(stringEncrypted)")
       } catch let error {
         print(error.localizedDescription)
       }

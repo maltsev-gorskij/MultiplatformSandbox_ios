@@ -18,7 +18,7 @@ struct ContentView: View {
         }
     }.onAppear {
       do {
-        let newProfile = Profile(userName: "vasya", encrypted: "petya")
+        let newProfile = Profile(userName: "Vasya", encryptedText: "Petya")
         try DIManager.shared.profileInteractor.saveProfile(profile: newProfile)
         let profile = try DIManager.shared.profileInteractor.getProfile()
         print("DEBUG: \(profile)")

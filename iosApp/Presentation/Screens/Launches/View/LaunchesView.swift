@@ -14,7 +14,11 @@ struct LaunchesView: View {
     NavigationView {
       ZStack(alignment: .bottom) {
         List(viewModel.launches) { launch in
-          RocketLaunchRow(rocketLaunch: launch)
+          NavigationLink(
+            destination: LaunchDetailView(viewModel: .init(interactor: DIManager.shared.launcesInteractor, launchId: launch.id))
+          ) {
+            RocketLaunchRow(rocketLaunch: launch)
+          }
         }
         .refreshable {
           viewModel.loadLaunches(forceReload: true)

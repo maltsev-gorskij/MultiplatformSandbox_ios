@@ -16,6 +16,9 @@
 		E3204A3B2983FFF300C390F3 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3204A3A2983FFF300C390F3 /* ProfileViewModel.swift */; };
 		E34E22FE2981BC1C004AF2BB /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E34E22FD2981BC1C004AF2BB /* Pods_iosApp.framework */; };
 		E34E22FF2981BC1C004AF2BB /* Pods_iosApp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E34E22FD2981BC1C004AF2BB /* Pods_iosApp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E35816682987F71800E39F8C /* LaunchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35816672987F71800E39F8C /* LaunchDetailView.swift */; };
+		E358166C2987F74600E39F8C /* LaunchDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E358166B2987F74600E39F8C /* LaunchDetailViewModel.swift */; };
+		E35816712988005200E39F8C /* RocketLaunch+launchTextSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35816702988005200E39F8C /* RocketLaunch+launchTextSuccess.swift */; };
 		E3BC9B62297ABE470055D24D /* LaunchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BC9B61297ABE470055D24D /* LaunchesView.swift */; };
 		E3BC9B64297ABE500055D24D /* LaunchesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BC9B63297ABE500055D24D /* LaunchesViewModel.swift */; };
 		E3BC9B68297ABE890055D24D /* KMM+Modules.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BC9B67297ABE890055D24D /* KMM+Modules.swift */; };
@@ -51,6 +54,9 @@
 		E3204A362983FF9500C390F3 /* DIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIService.swift; sourceTree = "<group>"; };
 		E3204A3A2983FFF300C390F3 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		E34E22FD2981BC1C004AF2BB /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E35816672987F71800E39F8C /* LaunchDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailView.swift; sourceTree = "<group>"; };
+		E358166B2987F74600E39F8C /* LaunchDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailViewModel.swift; sourceTree = "<group>"; };
+		E35816702988005200E39F8C /* RocketLaunch+launchTextSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RocketLaunch+launchTextSuccess.swift"; sourceTree = "<group>"; };
 		E3BC9B61297ABE470055D24D /* LaunchesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesView.swift; sourceTree = "<group>"; };
 		E3BC9B63297ABE500055D24D /* LaunchesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesViewModel.swift; sourceTree = "<group>"; };
 		E3BC9B67297ABE890055D24D /* KMM+Modules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KMM+Modules.swift"; sourceTree = "<group>"; };
@@ -135,6 +141,7 @@
 		E3204A352983FF8C00C390F3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E358166D2987FA6700E39F8C /* Mappers */,
 				E3204A362983FF9500C390F3 /* DIService.swift */,
 			);
 			path = Services;
@@ -153,6 +160,38 @@
 				E3204A3A2983FFF300C390F3 /* ProfileViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E35816662987F70A00E39F8C /* LaunchDetail */ = {
+			isa = PBXGroup;
+			children = (
+				E358166A2987F73B00E39F8C /* ViewModel */,
+				E35816692987F73100E39F8C /* View */,
+			);
+			path = LaunchDetail;
+			sourceTree = "<group>";
+		};
+		E35816692987F73100E39F8C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E35816672987F71800E39F8C /* LaunchDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E358166A2987F73B00E39F8C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E358166B2987F74600E39F8C /* LaunchDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E358166D2987FA6700E39F8C /* Mappers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mappers;
 			sourceTree = "<group>";
 		};
 		E3BC9B5E297ABE2C0055D24D /* Launches */ = {
@@ -193,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				E3BC9B67297ABE890055D24D /* KMM+Modules.swift */,
+				E35816702988005200E39F8C /* RocketLaunch+launchTextSuccess.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -225,6 +265,7 @@
 		E3D7456C297AD25B00BDC242 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				E35816662987F70A00E39F8C /* LaunchDetail */,
 				E3D7456E297AD27A00BDC242 /* Profile */,
 				E3D7456D297AD27500BDC242 /* Favorites */,
 				E3BC9B5E297ABE2C0055D24D /* Launches */,
@@ -373,9 +414,12 @@
 				E3BC9B6C297AC6330055D24D /* ToastView.swift in Sources */,
 				E3204A3B2983FFF300C390F3 /* ProfileViewModel.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				E358166C2987F74600E39F8C /* LaunchDetailViewModel.swift in Sources */,
 				E3BC9B64297ABE500055D24D /* LaunchesViewModel.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				E35816682987F71800E39F8C /* LaunchDetailView.swift in Sources */,
 				E3BC9B62297ABE470055D24D /* LaunchesView.swift in Sources */,
+				E35816712988005200E39F8C /* RocketLaunch+launchTextSuccess.swift in Sources */,
 				E3BC9B68297ABE890055D24D /* KMM+Modules.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

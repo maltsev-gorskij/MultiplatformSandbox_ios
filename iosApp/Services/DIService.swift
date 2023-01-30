@@ -12,7 +12,7 @@ import shared
 final class DIManager {
 
   static func configure() {
-    KoinInitializerKt.initializeKoin()
+    KoinInitializer().initializeKoin()
   }
 
   static let shared = DIManager()

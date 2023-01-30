@@ -17,6 +17,7 @@ final class ProfileViewModel: ObservableObject {
 
   init(interactor: ProfileInteractor) {
     self.interactor = interactor
+    get()
   }
 
   func save() {

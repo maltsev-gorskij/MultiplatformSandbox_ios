@@ -141,6 +141,9 @@ Pods/
 Podfile.lock
 contents.xcworkspacedata
 
+# KMM
+MultiplatformSandbox_kmm/
+
 *.cer
 *.mobileprovision
 

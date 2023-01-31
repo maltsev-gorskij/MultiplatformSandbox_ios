@@ -5,6 +5,7 @@ import shared
 struct iOSApp: App {
   init() {
     DIManager.configure()
+    AppInitializer().doInit()
   }
 
   var body: some Scene {

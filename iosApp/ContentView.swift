@@ -6,15 +6,15 @@ struct ContentView: View {
     TabView {
       LaunchesView()
         .tabItem {
-          Label("Launches", systemImage: "airplane")
+          Label(Strings.bottom_nav_launches.string, systemImage: "airplane")
         }
       FavoritesView()
         .tabItem {
-          Label("Favorites", systemImage: "heart")
+          Label(Strings.bottom_nav_favourites.string, systemImage: "heart")
         }
       ProfileView()
         .tabItem {
-          Label("Profile", systemImage: "person")
+          Label(Strings.bottom_nav_profile.string, systemImage: "person")
         }
     }
   }

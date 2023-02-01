@@ -24,6 +24,8 @@
 		E3BC9B68297ABE890055D24D /* KMM+Modules.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BC9B67297ABE890055D24D /* KMM+Modules.swift */; };
 		E3BC9B6C297AC6330055D24D /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BC9B6B297AC6330055D24D /* ToastView.swift */; };
 		E3BC9B6F297AC6700055D24D /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BC9B6E297AC6700055D24D /* Toast.swift */; };
+		E3C8DA59298A8D250058417B /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C8DA58298A8D250058417B /* Strings.swift */; };
+		E3C8DA5B298A8D7F0058417B /* Resourse+string.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C8DA5A298A8D7F0058417B /* Resourse+string.swift */; };
 		E3D74570297AD28B00BDC242 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D7456F297AD28B00BDC242 /* ProfileView.swift */; };
 		E3D74572297AD29100BDC242 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D74571297AD29100BDC242 /* FavoritesView.swift */; };
 /* End PBXBuildFile section */
@@ -62,6 +64,8 @@
 		E3BC9B67297ABE890055D24D /* KMM+Modules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KMM+Modules.swift"; sourceTree = "<group>"; };
 		E3BC9B6B297AC6330055D24D /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		E3BC9B6E297AC6700055D24D /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		E3C8DA58298A8D250058417B /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		E3C8DA5A298A8D7F0058417B /* Resourse+string.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resourse+string.swift"; sourceTree = "<group>"; };
 		E3D7456F297AD28B00BDC242 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		E3D74571297AD29100BDC242 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		E53A914A82039EF43057EF1A /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 				E3BC9B6D297AC6660055D24D /* Models */,
 				E3BC9B69297AC6210055D24D /* Presentation */,
 				E3BC9B65297ABE5E0055D24D /* Helpers */,
+				E3C8DA56298A8D150058417B /* Resources */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
@@ -262,6 +267,23 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		E3C8DA56298A8D150058417B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E3C8DA57298A8D1E0058417B /* Helpers */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E3C8DA57298A8D1E0058417B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E3C8DA58298A8D250058417B /* Strings.swift */,
+				E3C8DA5A298A8D7F0058417B /* Resourse+string.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		E3D7456C297AD25B00BDC242 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,6 +430,7 @@
 			files = (
 				E3D74572297AD29100BDC242 /* FavoritesView.swift in Sources */,
 				1A0A3B7E297025F00051AE97 /* RocketLaunchRow.swift in Sources */,
+				E3C8DA59298A8D250058417B /* Strings.swift in Sources */,
 				E3D74570297AD28B00BDC242 /* ProfileView.swift in Sources */,
 				E3BC9B6F297AC6700055D24D /* Toast.swift in Sources */,
 				E3204A372983FF9500C390F3 /* DIService.swift in Sources */,
@@ -415,6 +438,7 @@
 				E3204A3B2983FFF300C390F3 /* ProfileViewModel.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				E358166C2987F74600E39F8C /* LaunchDetailViewModel.swift in Sources */,
+				E3C8DA5B298A8D7F0058417B /* Resourse+string.swift in Sources */,
 				E3BC9B64297ABE500055D24D /* LaunchesViewModel.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 				E35816682987F71800E39F8C /* LaunchDetailView.swift in Sources */,

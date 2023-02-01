@@ -12,7 +12,7 @@ import shared
 extension RocketLaunch {
   var launchTextSuccess: String {
    if let isSuccess = self.launchSuccess {
-     return isSuccess.boolValue ? "Successful" : "Unsuccessful"
+     return isSuccess.boolValue ? Strings.launch_card_successful.string : Strings.launch_card_unsuccessful.string
    } else {
      return "No data"
    }

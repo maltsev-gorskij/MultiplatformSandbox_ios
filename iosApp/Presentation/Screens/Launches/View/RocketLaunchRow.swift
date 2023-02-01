@@ -15,10 +15,11 @@ struct RocketLaunchRow: View {
   var body: some View {
     HStack() {
       VStack(alignment: .leading, spacing: 10.0) {
-        Text("Launch name: \(rocketLaunch.missionName)")
-        Text(rocketLaunch.launchTextSuccess).foregroundColor(launchColor)
-        Text("Launch year: \(String(rocketLaunch.launchYear))")
-        Text("Launch details: \(rocketLaunch.details ?? "")")
+        Text(Strings.launch_card_name.format(args_: [rocketLaunch.missionName]).string)
+        Text(rocketLaunch.launchTextSuccess)
+          .foregroundColor(launchColor)
+        Text(Strings.launch_card_year.format(args_: [rocketLaunch.launchYear]).string)
+        Text(Strings.launch_card_details.format(args_: [rocketLaunch.details ?? ""]).string)
       }
       Spacer()
     }

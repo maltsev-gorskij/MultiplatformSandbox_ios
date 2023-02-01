@@ -14,10 +14,10 @@ struct ProfileView: View {
   var body: some View {
     VStack(spacing: 60) {
       VStack(spacing: 20) {
-        TextField("User name...", text: $viewModel.userName)
-        TextField("Encrypted text...", text: $viewModel.encryptedText)
+        TextField(Strings.profile_username_hint.string, text: $viewModel.userName)
+        TextField(Strings.profile_text_hint.string, text: $viewModel.encryptedText)
       }
-      Button("save") {
+      Button(Strings.common_save.string) {
         viewModel.save()
       }
     }

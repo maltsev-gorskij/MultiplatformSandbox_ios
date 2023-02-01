@@ -27,7 +27,7 @@ struct LaunchesView: View {
           ToastView(toast: toast)
         }
       }
-      .navigationBarTitle("SpaceX Launches")
+      .navigationBarTitle(Strings.launches_header_text.string)
     }
   }
 }

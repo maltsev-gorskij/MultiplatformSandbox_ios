@@ -155,6 +155,7 @@
 		E3204A382983FFDF00C390F3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E3D7456F297AD28B00BDC242 /* ProfileView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -308,7 +309,6 @@
 			children = (
 				E3204A392983FFE300C390F3 /* ViewModel */,
 				E3204A382983FFDF00C390F3 /* View */,
-				E3D7456F297AD28B00BDC242 /* ProfileView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";

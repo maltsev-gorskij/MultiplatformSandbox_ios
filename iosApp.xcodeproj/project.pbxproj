@@ -28,6 +28,7 @@
 		E3C8DA5B298A8D7F0058417B /* Resourse+string.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C8DA5A298A8D7F0058417B /* Resourse+string.swift */; };
 		E3D74570297AD28B00BDC242 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D7456F297AD28B00BDC242 /* ProfileView.swift */; };
 		E3D74572297AD29100BDC242 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D74571297AD29100BDC242 /* FavoritesView.swift */; };
+		E3E6949E29938AD900655A1A /* ResourceStateKs+Cases.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E6949D29938AD900655A1A /* ResourceStateKs+Cases.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -68,6 +69,7 @@
 		E3C8DA5A298A8D7F0058417B /* Resourse+string.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resourse+string.swift"; sourceTree = "<group>"; };
 		E3D7456F297AD28B00BDC242 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		E3D74571297AD29100BDC242 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		E3E6949D29938AD900655A1A /* ResourceStateKs+Cases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ResourceStateKs+Cases.swift"; sourceTree = "<group>"; };
 		E53A914A82039EF43057EF1A /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -239,6 +241,7 @@
 			children = (
 				E3BC9B67297ABE890055D24D /* KMM+Modules.swift */,
 				E35816702988005200E39F8C /* RocketLaunch+launchTextSuccess.swift */,
+				E3E6949D29938AD900655A1A /* ResourceStateKs+Cases.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -325,7 +328,7 @@
 				7555FF78242A565900829871 /* Frameworks */,
 				7555FF79242A565900829871 /* Resources */,
 				E34E22FC2981BB6E004AF2BB /* Embed Frameworks */,
-				A2E087296007B70A0D73DF59 /* [CP] Embed Pods Frameworks */,
+				FBC4D7F8D7415EFE06F8B37F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -382,23 +385,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A2E087296007B70A0D73DF59 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iosApp/Pods-iosApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iosApp/Pods-iosApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iosApp/Pods-iosApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		DED098E55C8E7540E76CD8C6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -421,6 +407,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FBC4D7F8D7415EFE06F8B37F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iosApp/Pods-iosApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iosApp/Pods-iosApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iosApp/Pods-iosApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -439,6 +442,7 @@
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				E358166C2987F74600E39F8C /* LaunchDetailViewModel.swift in Sources */,
 				E3C8DA5B298A8D7F0058417B /* Resourse+string.swift in Sources */,
+				E3E6949E29938AD900655A1A /* ResourceStateKs+Cases.swift in Sources */,
 				E3BC9B64297ABE500055D24D /* LaunchesViewModel.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 				E35816682987F71800E39F8C /* LaunchDetailView.swift in Sources */,

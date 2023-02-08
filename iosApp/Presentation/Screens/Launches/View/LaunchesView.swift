@@ -13,18 +13,29 @@ struct LaunchesView: View {
   var body: some View {
     NavigationView {
       ZStack(alignment: .bottom) {
-        List(viewModel.launches) { launch in
-          NavigationLink(
-            destination: LaunchDetailView(viewModel: .init(interactor: DIManager.shared.launcesInteractor, launchId: launch.id))
-          ) {
-            RocketLaunchRow(rocketLaunch: launch)
+        ScrollView {
+          LazyVStack(spacing: 10) {
+            ForEach(viewModel.launches) { launch in
+              NavigationLink(
+                destination: LaunchDetailView(viewModel: .init(interactor: DIManager.shared.launcesInteractor, launchId: launch.id))
+              ) {
+                RocketLaunchRow(rocketLaunch: launch)
+              }
+              .buttonStyle(PlainButtonStyle())
+            }
+            ProgressView()
+              .opacity(viewModel.showLoaderPagination ? 1 : 0)
+              .onAppear {
+                viewModel.loadNextPage()
+              }
           }
         }
         .refreshable {
-          viewModel.loadLaunches(forceReload: true)
+          viewModel.refreshPagination()
         }
         if let toast = viewModel.toast {
           ToastView(toast: toast)
+            .padding(.bottom, 30)
         }
       }
       .navigationBarTitle(Strings.launches_header_text.string)

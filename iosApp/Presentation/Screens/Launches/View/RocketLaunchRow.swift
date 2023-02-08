@@ -23,6 +23,9 @@ struct RocketLaunchRow: View {
       }
       Spacer()
     }
+    .padding(.horizontal, 20)
+    .padding(.vertical, 15)
+    .background(Color.black.opacity(0.3))
   }
 }
 

@@ -17,7 +17,7 @@ struct LaunchDetailView: View {
         if let launch = viewModel.rocketLaunch {
           VStack(spacing: 20) {
             imagesCollection(launch: launch)
-            textBlock("Start Date", text: launch.launchDateUTC)
+            textBlock("Start Date", text: launch.launchDateUTC ?? "")
             Text(launch.launchTextSuccess)
               .bold()
               .frame(maxWidth: .infinity, alignment: .leading)

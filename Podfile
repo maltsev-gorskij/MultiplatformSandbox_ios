@@ -5,6 +5,7 @@ target 'iosApp' do
   use_frameworks!
 
   #Pods for iosApp
+  pod 'sharedSwift', :path => 'MultiplatformSandbox_kmm/shared'
   pod 'shared', :path => 'MultiplatformSandbox_kmm/shared'
 
 end

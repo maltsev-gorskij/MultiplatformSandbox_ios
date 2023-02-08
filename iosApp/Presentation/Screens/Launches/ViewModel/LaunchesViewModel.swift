@@ -17,7 +17,7 @@ final class LaunchesViewModel: ObservableObject {
   @Published private(set) var toast: Toast?
 
   private var timer: Timer?
-  private var paginationState: LiveData<ResourceState<NSArray, KotlinThrowable>>?
+  private var paginationState: PaginationState?
 
   init(interactor: LaunchesInteractor) {
     self.interactor = interactor
@@ -25,36 +25,39 @@ final class LaunchesViewModel: ObservableObject {
   }
 
   func loadNextPage() {
-    do {
-      try interactor.loadNextPage()
-    } catch let error {
-      print("DEBUG: loadNextPage - \(error.localizedDescription)")
-    }
+    interactor.loadNextPage { _ in }
   }
 
   func refreshPagination() {
-    do {
-      try interactor.refreshPagination()
-    } catch let error {
-      print("DEBUG: refreshPagination - \(error.localizedDescription)")
-    }
+    interactor.refreshPagination { _ in }
   }
 
   private func initialObservers() {
-    do {
-      self.paginationState = try interactor.initializePagination()
-    } catch let error {
-      assertionFailure("DEBUG: error with initializePagination from interactor: \(error.localizedDescription)")
-      return
+    interactor.initializePagination { [weak self] paginationState, error in
+      guard let self = self else { return }
+      if let error = error {
+        assertionFailure("DEBUG: failed get paginationState\(error.localizedDescription)")
+        return
+      }
+      self.paginationState = paginationState
+      self.addObserversStates()
     }
-    paginationState?.addObserver { [weak self] resourceState in
+  }
+  
+  private func addObserversStates() {
+    paginationState?.resourceState.addObserver { [weak self] resourceState in
       guard let self = self, let resourceState = resourceState else { return }
       let stateKs = ResourceStateKs(resourceState)
-      self.updateUIState(stateKs)
+      self.updateResourceState(stateKs)
+    }
+    paginationState?.nextPageLoadingState.addObserver { [weak self] pageLoadingState in
+      guard let self = self, let pageLoadingState = pageLoadingState else { return }
+      let stateKs = ResourceStateKs(pageLoadingState)
+      self.updatePageLoadingState(stateKs)
     }
   }
 
-  private func updateUIState(_ resourceState: ResourceStateKs<NSArray, KotlinThrowable>) {
+  private func updateResourceState(_ resourceState: ResourceStateKs<NSArray, KotlinThrowable>) {
     switch resourceState {
     case .success:
       let launchesString = resourceState
@@ -63,11 +66,18 @@ final class LaunchesViewModel: ObservableObject {
       self.launches = launches
       self.shownToast(toast: .success)
       self.showLoaderPagination = true
-    case .failed:
-      self.shownToast(toast: .failed)
-      self.showLoaderPagination = false
     default:
       break
+    }
+  }
+
+  private func updatePageLoadingState(_ pageLoadingState: ResourceStateKs<NSArray, KotlinThrowable>) {
+    switch pageLoadingState {
+    case .failed(let resourceStateFailed):
+      print("DEBUG: failed loading next page - \(resourceStateFailed.description())")
+      self.shownToast(toast: .success)
+      self.showLoaderPagination = false
+    default: break
     }
   }
 

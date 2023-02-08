@@ -58,31 +58,37 @@ final class LaunchesViewModel: ObservableObject {
   }
 
   private func updateResourceState(_ resourceState: ResourceStateKs<NSArray, KotlinThrowable>) {
-    switch resourceState {
-    case .success:
-      let launchesString = resourceState
-        .success({ $0! }, or: [])
-      let launches = launchesString.compactMap { $0 as? RocketLaunch }
-      self.launches = launches
-      self.shownToast(toast: .success)
-      self.showLoaderPagination = true
-    default:
-      break
+    DispatchQueue.main.async {
+      switch resourceState {
+      case .success:
+        let launchesString = resourceState
+          .success({ $0! }, or: [])
+        let launches = launchesString.compactMap { $0 as? RocketLaunch }
+        self.launches = launches
+        self.shownToast(toast: .success)
+        self.showLoaderPagination = true
+      default:
+        break
+      }
     }
   }
 
   private func updatePageLoadingState(_ pageLoadingState: ResourceStateKs<NSArray, KotlinThrowable>) {
-    switch pageLoadingState {
-    case .failed(let resourceStateFailed):
-      print("DEBUG: failed loading next page - \(resourceStateFailed.description())")
-      self.shownToast(toast: .success)
-      self.showLoaderPagination = false
-    default: break
+    DispatchQueue.main.async {
+      switch pageLoadingState {
+      case .failed(let resourceStateFailed):
+        print("DEBUG: failed loading next page - \(resourceStateFailed.description())")
+        self.shownToast(toast: .success)
+        self.showLoaderPagination = false
+      default: break
+      }
     }
   }
 
   private func shownToast(toast: Toast) {
-    self.toast = toast
+    DispatchQueue.main.async {
+      self.toast = toast
+    }
     Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { [weak self] _ in
       guard let self = self else { return }
       self.toast = nil

@@ -17,7 +17,7 @@ final class LaunchesViewModel: ObservableObject {
   @Published private(set) var toast: Toast?
 
   private var timer: Timer?
-  private var paginationState: PaginationState?
+  private var paginationState: PaginationState<RocketLaunch>?
 
   init(interactor: LaunchesInteractor) {
     self.interactor = interactor
@@ -25,11 +25,11 @@ final class LaunchesViewModel: ObservableObject {
   }
 
   func loadNextPage() {
-    interactor.loadNextPage { _ in }
+    paginationState?.loadNextPage { _ in }
   }
 
   func refreshPagination() {
-    interactor.refreshPagination { _ in }
+    paginationState?.refreshPagination { _ in }
   }
 
   private func initialObservers() {

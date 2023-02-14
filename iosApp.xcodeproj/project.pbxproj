@@ -19,6 +19,7 @@
 		E35816682987F71800E39F8C /* LaunchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35816672987F71800E39F8C /* LaunchDetailView.swift */; };
 		E358166C2987F74600E39F8C /* LaunchDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E358166B2987F74600E39F8C /* LaunchDetailViewModel.swift */; };
 		E35816712988005200E39F8C /* RocketLaunch+launchTextSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35816702988005200E39F8C /* RocketLaunch+launchTextSuccess.swift */; };
+		E38061A4299BC88E00C1B183 /* ValidationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38061A3299BC88E00C1B183 /* ValidationInteractor.swift */; };
 		E3BC9B62297ABE470055D24D /* LaunchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BC9B61297ABE470055D24D /* LaunchesView.swift */; };
 		E3BC9B64297ABE500055D24D /* LaunchesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BC9B63297ABE500055D24D /* LaunchesViewModel.swift */; };
 		E3BC9B68297ABE890055D24D /* KMM+Modules.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BC9B67297ABE890055D24D /* KMM+Modules.swift */; };
@@ -60,6 +61,7 @@
 		E35816672987F71800E39F8C /* LaunchDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailView.swift; sourceTree = "<group>"; };
 		E358166B2987F74600E39F8C /* LaunchDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailViewModel.swift; sourceTree = "<group>"; };
 		E35816702988005200E39F8C /* RocketLaunch+launchTextSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RocketLaunch+launchTextSuccess.swift"; sourceTree = "<group>"; };
+		E38061A3299BC88E00C1B183 /* ValidationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationInteractor.swift; sourceTree = "<group>"; };
 		E3BC9B61297ABE470055D24D /* LaunchesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesView.swift; sourceTree = "<group>"; };
 		E3BC9B63297ABE500055D24D /* LaunchesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesViewModel.swift; sourceTree = "<group>"; };
 		E3BC9B67297ABE890055D24D /* KMM+Modules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KMM+Modules.swift"; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				E38061A2299BC88500C1B183 /* Testing */,
 				E3204A352983FF8C00C390F3 /* Services */,
 				E3BC9B6D297AC6660055D24D /* Models */,
 				E3BC9B69297AC6210055D24D /* Presentation */,
@@ -200,6 +203,14 @@
 			children = (
 			);
 			path = Mappers;
+			sourceTree = "<group>";
+		};
+		E38061A2299BC88500C1B183 /* Testing */ = {
+			isa = PBXGroup;
+			children = (
+				E38061A3299BC88E00C1B183 /* ValidationInteractor.swift */,
+			);
+			path = Testing;
 			sourceTree = "<group>";
 		};
 		E3BC9B5E297ABE2C0055D24D /* Launches */ = {
@@ -438,6 +449,7 @@
 				E3BC9B6F297AC6700055D24D /* Toast.swift in Sources */,
 				E3204A372983FF9500C390F3 /* DIService.swift in Sources */,
 				E3BC9B6C297AC6330055D24D /* ToastView.swift in Sources */,
+				E38061A4299BC88E00C1B183 /* ValidationInteractor.swift in Sources */,
 				E3204A3B2983FFF300C390F3 /* ProfileViewModel.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				E358166C2987F74600E39F8C /* LaunchDetailViewModel.swift in Sources */,

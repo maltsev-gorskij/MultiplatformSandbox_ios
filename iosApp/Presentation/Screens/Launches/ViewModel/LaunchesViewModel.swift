@@ -22,6 +22,7 @@ final class LaunchesViewModel: ObservableObject {
   init(interactor: LaunchesInteractor) {
     self.interactor = interactor
     initialObservers()
+    Testing().testing()
   }
 
   func loadNextPage() {

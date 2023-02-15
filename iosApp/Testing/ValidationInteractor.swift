@@ -54,14 +54,16 @@ fileprivate class Testing {
       }
     }
     
-    let sharedResult = validation.getNonSuspendDatabaseEntries()
-    let sharedResultKs = SharedResultKs(sharedResult)
-    switch sharedResultKs {
-    case .exception(let sharedResultException):
-      let exception = DatabaseExceptionsKs(sharedResultException.exception as! DatabaseExceptions)
-      print("DEBUG: with error -", exception.sealed)
-    case .success:
-      break
+    validation.getSuspendDatabaseEntries { sharedResult, _ in
+      guard let sharedResult = sharedResult else { return }
+      let sharedKs = SharedResultKs(sharedResult)
+      switch sharedKs {
+      case .exception(let sharedResultException):
+        let exception = DatabaseExceptionsKs(sharedResultException.exception as! DatabaseExceptions)
+        print("DEBUG: with error -", exception.sealed)
+      case .success:
+        break
+      }
     }
   }
 }

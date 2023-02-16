@@ -9,20 +9,35 @@
 import shared
 import sharedSwift
 import KMPNativeCoroutinesCombine
+import Combine
 
 class Testing {
   let validation = ValidationInteractor()
 
-  func testing() {
-    let publisher = createPublisher(for: validation.getSuspendNetworkSuccessNative())
+  private var cancels = Set<AnyCancellable>()
+
+  func testPublisher() {
+    let publisher = createPublisher(for: validation.getSuspendRocketLaunchNative())
     
-    let cancellable = publisher.sink { completion in
+    publisher.sink { completion in
       print("Received completion: \(completion)")
-    } receiveValue: { value in
-      SharedLogger().logDebug(message: "Received value: \(value)", throwable: nil, tag: "SomeTag")
-      print("Received value: \(value)")
+    } receiveValue: { sharedResult in
+      SharedLogger().logDebug(message: "Received value: \(sharedResult)", throwable: nil, tag: "SomeTag")
     }
-  
+    .store(in: &cancels)
+  }
+
+
+  func testing() {
+//    let publisher = createPublisher(for: validation.getSuspendNetworkSuccessNative())
+//
+//    let cancellable = publisher.sink { completion in
+//      print("Received completion: \(completion)")
+//    } receiveValue: { value in
+//      SharedLogger().logDebug(message: "Received value: \(value)", throwable: nil, tag: "SomeTag")
+//      print("Received value: \(value)")
+//    }
+//
 //    cancellable.cancel()
     
 //    validation.getSuspendNetworkSuccess { sharedResult, _ in

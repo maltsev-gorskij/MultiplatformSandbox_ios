@@ -8,6 +8,8 @@
 
 import shared
 import sharedSwift
+import Combine
+import KMPNativeCoroutinesCombine
 
 final class LaunchesViewModel: ObservableObject {
   private let interactor: LaunchesInteractor
@@ -17,73 +19,45 @@ final class LaunchesViewModel: ObservableObject {
   @Published private(set) var toast: Toast?
 
   private var timer: Timer?
-  private var paginationState: PaginationState<RocketLaunch>?
+  private var paginationProvider: PaginationProvider<RocketLaunch>
+
+  private var cancels = Set<AnyCancellable>()
 
   init(interactor: LaunchesInteractor) {
     self.interactor = interactor
-    initialObservers()
-    Testing().testing()
+    self.paginationProvider = interactor.getPaginationProvider()
+    listenerPaginationState()
   }
 
   func loadNextPage() {
-    paginationState?.loadNextPage { _ in }
+    paginationProvider.loadNextPage()
   }
 
   func refreshPagination() {
-    paginationState?.refreshPagination { _ in }
+    paginationProvider.refreshPagination()
   }
 
-  private func initialObservers() {
-    interactor.initializePagination { [weak self] paginationState, error in
-      guard let self = self else { return }
-      if let error = error {
-        assertionFailure("DEBUG: failed get paginationState\(error.localizedDescription)")
-        return
+  private func listenerPaginationState() {
+    createPublisher(for: paginationProvider.paginationStateNative)
+      .receive(on: RunLoop.main)
+      .sink { _ in
+      } receiveValue: { [weak self] paginationState in
+        guard let self = self else { return }
+        let stateKs = PaginationStateKs(paginationState)
+        switch stateKs {
+        case .failed:
+          self.shownToast(toast: .failed)
+          self.showLoaderPagination = false
+        case .loading:
+          self.showLoaderPagination = false
+        case .success(let paginationStateSuccess):
+          let rocketLaunches = paginationStateSuccess.data.compactMap { $0 as? RocketLaunch }
+          self.launches = rocketLaunches
+          self.showLoaderPagination = true
+        }
       }
-      self.paginationState = paginationState
-      self.addObserversStates()
-    }
-  }
-  
-  private func addObserversStates() {
-    paginationState?.resourceState.addObserver { [weak self] resourceState in
-      guard let self = self, let resourceState = resourceState else { return }
-      let stateKs = ResourceStateKs(resourceState)
-      self.updateResourceState(stateKs)
-    }
-    paginationState?.nextPageLoadingState.addObserver { [weak self] pageLoadingState in
-      guard let self = self, let pageLoadingState = pageLoadingState else { return }
-      let stateKs = ResourceStateKs(pageLoadingState)
-      self.updatePageLoadingState(stateKs)
-    }
-  }
+      .store(in: &cancels)
 
-  private func updateResourceState(_ resourceState: ResourceStateKs<NSArray, KotlinThrowable>) {
-    DispatchQueue.main.async {
-      switch resourceState {
-      case .success:
-        let launchesString = resourceState
-          .success({ $0! }, or: [])
-        let launches = launchesString.compactMap { $0 as? RocketLaunch }
-        self.launches = launches
-        self.shownToast(toast: .success)
-        self.showLoaderPagination = true
-      default:
-        break
-      }
-    }
-  }
-
-  private func updatePageLoadingState(_ pageLoadingState: ResourceStateKs<NSArray, KotlinThrowable>) {
-    DispatchQueue.main.async {
-      switch pageLoadingState {
-      case .failed(let resourceStateFailed):
-        print("DEBUG: failed loading next page - \(resourceStateFailed.description())")
-        self.shownToast(toast: .success)
-        self.showLoaderPagination = false
-      default: break
-      }
-    }
   }
 
   private func shownToast(toast: Toast) {

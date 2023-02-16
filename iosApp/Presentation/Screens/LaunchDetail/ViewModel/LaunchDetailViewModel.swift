@@ -8,12 +8,16 @@
 
 import shared
 import sharedSwift
+import KMPNativeCoroutinesCombine
+import Combine
 
 final class LaunchDetailViewModel: ObservableObject {
   @Published private(set) var rocketLaunch: RocketLaunch?
   @Published private(set) var error: String?
   
   private let interactor: LaunchesInteractor
+
+  private var cancels = Set<AnyCancellable>()
   
   init(interactor: LaunchesInteractor, launchId: String) {
     self.interactor = interactor
@@ -21,20 +25,21 @@ final class LaunchDetailViewModel: ObservableObject {
   }
   
   private func getLaunch(id: String) {
-    interactor.getLaunchById(launchId: id) { [weak self] sharedResult, _ in
-      guard let self = self, let sharedResult = sharedResult else { return }
-      let sharedResultKs = SharedResultKs(sharedResult)
-      DispatchQueue.main.async {
+    createPublisher(for: interactor.getLaunchByIdNative(launchId: id))
+      .receive(on: RunLoop.main)
+      .sink { _ in
+      } receiveValue: { [weak self] sharedResult in
+        guard let self = self else { return }
+        let sharedResultKs = SharedResultKs(sharedResult)
         switch sharedResultKs {
         case .exception(let sharedResultException):
           guard let dbException = sharedResultException.exception as? DatabaseExceptions else { return }
           let errorMessage = DatabaseExceptionsKs(dbException).sealed.errorMessage
-          print("DEBUG: error - \(errorMessage)")
           self.error = errorMessage
         case .success(let sharedResultSuccess):
           self.rocketLaunch = sharedResultSuccess.data
         }
       }
-    }
+      .store(in: &cancels)
   }
 }

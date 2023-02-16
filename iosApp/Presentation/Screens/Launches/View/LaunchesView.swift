@@ -23,11 +23,12 @@ struct LaunchesView: View {
               }
               .buttonStyle(PlainButtonStyle())
             }
-            ProgressView()
-              .opacity(viewModel.showLoaderPagination ? 1 : 0)
-              .onAppear {
-                viewModel.loadNextPage()
-              }
+            if viewModel.showLoaderPagination {
+              ProgressView()
+                .onAppear {
+                  viewModel.loadNextPage()
+                }
+            }
           }
         }
         .refreshable {

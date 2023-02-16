@@ -54,6 +54,9 @@ final class LaunchesViewModel: ObservableObject {
           let rocketLaunches = paginationStateSuccess.data.compactMap { $0 as? RocketLaunch }
           self.launches = rocketLaunches
           self.showLoaderPagination = true
+          if paginationStateSuccess.isRefreshed {
+            self.shownToast(toast: .success)
+          }
         }
       }
       .store(in: &cancels)

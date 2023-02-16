@@ -20,6 +20,11 @@ struct ProfileView: View {
       Button(Strings.common_save.string) {
         viewModel.save()
       }
+      if !viewModel.errorMessage.isEmpty {
+        Text(viewModel.errorMessage)
+          .foregroundColor(.red)
+          .bold()
+      }
     }
     .padding(.horizontal, 40)
   }

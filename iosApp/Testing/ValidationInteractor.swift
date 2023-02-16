@@ -11,24 +11,24 @@ import sharedSwift
 import KMPNativeCoroutinesCombine
 import Combine
 
-class Testing {
-  let validation = ValidationInteractor()
+//class Testing {
+//  let validation = ValidationInteractor()
+//
+//  private var cancels = Set<AnyCancellable>()
+//
+//  func testPublisher() {
+//    let publisher = createPublisher(for: validation.getSuspendRocketLaunchNative())
+//
+//    publisher.sink { completion in
+//      print("Received completion: \(completion)")
+//    } receiveValue: { sharedResult in
+//      SharedLogger().logDebug(message: "Received value: \(sharedResult)", throwable: nil, tag: "SomeTag")
+//    }
+//    .store(in: &cancels)
+//  }
+//
 
-  private var cancels = Set<AnyCancellable>()
-
-  func testPublisher() {
-    let publisher = createPublisher(for: validation.getSuspendRocketLaunchNative())
-    
-    publisher.sink { completion in
-      print("Received completion: \(completion)")
-    } receiveValue: { sharedResult in
-      SharedLogger().logDebug(message: "Received value: \(sharedResult)", throwable: nil, tag: "SomeTag")
-    }
-    .store(in: &cancels)
-  }
-
-
-  func testing() {
+//  func testing() {
 //    let publisher = createPublisher(for: validation.getSuspendNetworkSuccessNative())
 //
 //    let cancellable = publisher.sink { completion in
@@ -92,5 +92,5 @@ class Testing {
 //        break
 //      }
 //    }
-  }
-}
+//  }
+//}

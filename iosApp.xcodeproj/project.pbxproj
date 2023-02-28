@@ -13,6 +13,7 @@
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		7D427F5D0E487475CDA2F441 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6868AE61744B5F209A3F8F6 /* Pods_iosApp.framework */; };
+		E30FD2AA29ACE70B00D4FC5F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E30FD2A929ACE70B00D4FC5F /* GoogleService-Info.plist */; };
 		E3204A372983FF9500C390F3 /* DIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3204A362983FF9500C390F3 /* DIService.swift */; };
 		E3204A3B2983FFF300C390F3 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3204A3A2983FFF300C390F3 /* ProfileViewModel.swift */; };
 		E35816682987F71800E39F8C /* LaunchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35816672987F71800E39F8C /* LaunchDetailView.swift */; };
@@ -53,6 +54,7 @@
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		969FAE978EC36026985C763E /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
 		A6FF8796FD573148CF36630A /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
+		E30FD2A929ACE70B00D4FC5F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E3204A362983FF9500C390F3 /* DIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIService.swift; sourceTree = "<group>"; };
 		E3204A3A2983FFF300C390F3 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		E35816672987F71800E39F8C /* LaunchDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailView.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
+				E30FD2A929ACE70B00D4FC5F /* GoogleService-Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
 			);
@@ -335,6 +338,8 @@
 				7555FF79242A565900829871 /* Resources */,
 				E34E22FC2981BB6E004AF2BB /* Embed Frameworks */,
 				CB9E9209F871905DBADA2692 /* [CP] Embed Pods Frameworks */,
+				E399DBED29AE3ADB0097B5B2 /* KMM Crashlytics */,
+				E30FD2AB29ACEA8B00D4FC5F /* Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -385,6 +390,7 @@
 			files = (
 				058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */,
 				058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */,
+				E30FD2AA29ACE70B00D4FC5F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +435,44 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iosApp/Pods-iosApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		E30FD2AB29ACEA8B00D4FC5F /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = Crashlytics;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
+		E399DBED29AE3ADB0097B5B2 /* KMM Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "KMM Crashlytics";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/upload-symbols\" -gsp \"${PROJECT_DIR}/iosApp/GoogleService-Info.plist\" -p ios \"${PROJECT_DIR}/MultiplatformSandbox_kmm/shared/build/cocoapods/framework\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

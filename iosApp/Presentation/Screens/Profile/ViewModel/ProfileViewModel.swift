@@ -25,13 +25,24 @@ final class ProfileViewModel: ObservableObject {
     // Commented example of Firestore usage. Move somethere or remain here
 //    self.firestore = FirestoreClient()
     
-    get()
+  // Commented Crashlytics example. Move it or remain here
+//  private let crashlyticsInteractor: FirebaseIntegrationInteractor
+
+  init(interactor: ProfileInteractor) {
+    self.interactor = interactor
+    // Commented Crashlytics example. Move it or remain here
+//    self.crashlyticsInteractor = FirebaseIntegrationInteractor()
+
+get()
   }
 
   func save() {
     // Commented example of Firestore usage. Move somethere or remain here
 //    self.firestore.addUser(name: "Vasya", completionHandler: { error in })
 //    self.firestore.getFirstUser { error in }
+
+    // Commented Crashlytics example. Move it or remain here
+//    crashlyticsInteractor.firebaseCrashlyticsTest()
     
     let profile = Profile(
       userName: userName, encryptedText: encryptedText

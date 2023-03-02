@@ -16,13 +16,20 @@ final class ProfileViewModel: ObservableObject {
   @Published private(set) var errorMessage = ""
 
   private let interactor: ProfileInteractor
+  // Commented Crashlytics example. Move it or remain here
+//  private let crashlyticsInteractor: FirebaseIntegrationInteractor
 
   init(interactor: ProfileInteractor) {
     self.interactor = interactor
+    // Commented Crashlytics example. Move it or remain here
+//    self.crashlyticsInteractor = FirebaseIntegrationInteractor()
     get()
   }
 
   func save() {
+    // Commented Crashlytics example. Move it or remain here
+//    crashlyticsInteractor.firebaseCrashlyticsTest()
+    
     let profile = Profile(
       userName: userName, encryptedText: encryptedText
     )

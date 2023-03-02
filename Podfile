@@ -4,16 +4,18 @@ platform :ios, '13.0'
 target 'iosApp' do
   use_frameworks!
 
-  #Pods for connect KMM library
+  # KMM library
   pod 'sharedSwift', :path => 'MultiplatformSandbox_kmm/shared'
   pod 'shared', :path => 'MultiplatformSandbox_kmm/shared'
+  pod 'shared_firebase', :path => 'MultiplatformSandbox_kmm/shared_firebase'
 
-  #Pods for helpers with KMM
+  # Kotlin to Swift suspend functions interop
   pod 'KMPNativeCoroutinesCombine', '0.13.3'
 
-  pod 'FirebaseCrashlytics'
-  pod 'FirebaseAnalytics'
-  pod 'FirebaseFirestore'
-
+  # Firebase
+  pod 'FirebaseCore', :git => 'https://github.com/firebase/firebase-ios-sdk.git', :branch => 'master'
+  pod 'FirebaseCrashlytics', :git => 'https://github.com/firebase/firebase-ios-sdk.git', :branch => 'master'
+  pod 'FirebaseAnalytics', :git => 'https://github.com/firebase/firebase-ios-sdk.git', :branch => 'master'
+  pod 'FirebaseFirestore', :git => 'https://github.com/firebase/firebase-ios-sdk.git', :branch => 'master'
 
 end

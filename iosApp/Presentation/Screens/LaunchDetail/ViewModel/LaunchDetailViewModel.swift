@@ -14,7 +14,7 @@ import Combine
 final class LaunchDetailViewModel: ObservableObject {
   @Published private(set) var rocketLaunch: RocketLaunch?
   @Published private(set) var error: String?
-  
+
   private let interactor: LaunchesInteractor
 
   private var cancels = Set<AnyCancellable>()

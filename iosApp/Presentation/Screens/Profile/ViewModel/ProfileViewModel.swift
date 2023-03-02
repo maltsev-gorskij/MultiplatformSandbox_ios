@@ -9,6 +9,7 @@
 import Foundation
 import shared
 import sharedSwift
+import shared_firebase
 
 final class ProfileViewModel: ObservableObject {
   @Published var encryptedText: String = ""
@@ -16,13 +17,22 @@ final class ProfileViewModel: ObservableObject {
   @Published private(set) var errorMessage = ""
 
   private let interactor: ProfileInteractor
+  // Commented example of Firestore usage. Move somethere or remain here
+//  private let firestore: FirestoreClient
 
   init(interactor: ProfileInteractor) {
     self.interactor = interactor
+    // Commented example of Firestore usage. Move somethere or remain here
+//    self.firestore = FirestoreClient()
+    
     get()
   }
 
   func save() {
+    // Commented example of Firestore usage. Move somethere or remain here
+//    self.firestore.addUser(name: "Vasya", completionHandler: { error in })
+//    self.firestore.getFirstUser { error in }
+    
     let profile = Profile(
       userName: userName, encryptedText: encryptedText
     )

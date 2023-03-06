@@ -17,5 +17,5 @@ target 'iosApp' do
   pod 'FirebaseCrashlytics', :git => 'https://github.com/firebase/firebase-ios-sdk.git', :branch => 'master'
   pod 'FirebaseAnalytics', :git => 'https://github.com/firebase/firebase-ios-sdk.git', :branch => 'master'
   pod 'FirebaseFirestore', :git => 'https://github.com/firebase/firebase-ios-sdk.git', :branch => 'master'
-
+  pod 'FirebaseDatabase', :git => 'https://github.com/firebase/firebase-ios-sdk.git', :branch => 'master'
 end

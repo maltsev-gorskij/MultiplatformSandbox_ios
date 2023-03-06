@@ -9,7 +9,7 @@
 import Foundation
 import shared
 import sharedSwift
-import shared_firebase
+//import shared_firebase
 
 final class ProfileViewModel: ObservableObject {
   @Published var encryptedText: String = ""

@@ -7,7 +7,7 @@ target 'iosApp' do
   # KMM library
   pod 'sharedSwift', :path => 'MultiplatformSandbox_kmm/shared'
   pod 'shared', :path => 'MultiplatformSandbox_kmm/shared'
-  pod 'shared_firebase', :path => 'MultiplatformSandbox_kmm/shared_firebase'
+#  pod 'shared_firebase', :path => 'MultiplatformSandbox_kmm/shared_firebase'
 
   # Kotlin to Swift suspend functions interop
   pod 'KMPNativeCoroutinesCombine', '0.13.3'
